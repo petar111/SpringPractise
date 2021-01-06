@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.springteam</groupId>
+    <artifactId>springPractise</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>5.2.9.RELEASE</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.2.9.RELEASE</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>3.0.6</version>
+            <type>pom</type>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>5.2.9.RELEASE</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.18</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.22</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.22.Final</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>5.2.9.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.3.1.Final</version>
+        </dependency>
+        
+        
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>2.3.4.RELEASE</version>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>
+        
+        
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.1.6.Final</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.glassfish/javax.el -->
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.el</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-jms -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jms</artifactId>
+            <version>5.3.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.hornetq/hornetq-jms-client -->
+        <dependency>
+            <groupId>org.hornetq</groupId>
+            <artifactId>hornetq-jms-client</artifactId>
+            <version>2.4.7.Final</version>
+        </dependency>
+        
+        
+        <!-- https://mvnrepository.com/artifact/org.springframework.amqp/spring-amqp -->
+        <dependency>
+            <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-amqp</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        
+        
+        <!-- https://mvnrepository.com/artifact/org.springframework.amqp/spring-rabbit -->
+        <dependency>
+            <groupId>org.springframework.amqp</groupId>
+            <artifactId>spring-rabbit</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        
+
+        <!-- https://mvnrepository.com/artifact/org.mockito/mockito-all -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.10.19</version>
+            <scope>test</scope>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.2.9.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        
+        
+        
+        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.200</version>
+            <scope>test</scope>
+        </dependency>
+        
+        
+        <!-- https://mvnrepository.com/artifact/org.dbunit/dbunit -->
+        <!--        <dependency>
+            <groupId>org.dbunit</groupId>
+            <artifactId>dbunit</artifactId>
+            <version>2.7.0</version>
+            <scope>test</scope>
+        </dependency>-->
+        
+        <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.7.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner -->
+        <!--        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-runner</artifactId>
+            <version>1.7.0</version>
+            <scope>test</scope>
+        </dependency>-->
+
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-neo4j -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-neo4j</artifactId>
+            <version>6.0.1</version>
+        </dependency>
+
+
+        <!-- https://mvnrepository.com/artifact/org.neo4j.driver/neo4j-java-driver -->
+        <dependency>
+            <groupId>org.neo4j.driver</groupId>
+            <artifactId>neo4j-java-driver</artifactId>
+            <version>4.1.1</version>
+        </dependency>
+
+        
+    </dependencies>
+    
+    
+    <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+
+
+    <build>
+        
+        
+        <!--        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit47</artifactId>
+                        <version>3.0.0-M5</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>   -->
+        
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.junit.jupiter</groupId>
+                        <artifactId>junit-jupiter-engine</artifactId>
+                        <version>5.3.2</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.junit.vintage</groupId>
+                        <artifactId>junit-vintage-engine</artifactId>
+                        <version>5.4.0</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            
+        </plugins>
+         
+
+        
+    </build>
+    
+</project>

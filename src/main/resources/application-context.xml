@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:task ="http://www.springframework.org/schema/task"
+       xmlns:p ="http://www.springframework.org/schema/p"
+       xmlns:rabbit ="http://www.springframework.org/schema/rabbit"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/task
+    http://www.springframework.org/schema/task/spring-task.xsd
+    http://www.springframework.org/schema/rabbit 
+    http://www.springframework.org/schema/rabbit/spring-rabbit.xsd"
+>
+	  
+          
+          
+          
+    <bean id="main" class="com.springteam.springpractise.main.Main">
+        <constructor-arg name="springWelcomeService" ref="simpleService" />
+        <constructor-arg name="mainLabel">
+            <value>MAIN_LABEL</value>
+        </constructor-arg>      
+    </bean>
+    
+    <bean id="simpleService" class="com.springteam.springpractise.service.impl.SpringWelcomeServiceSimple">      
+    </bean>
+    
+    <bean id="messagePublisher" class="com.springteam.springpractise.publisher.MessagePublisher">      
+    </bean>
+    
+    <bean id="messageListener1" class="com.springteam.springpractise.listener.MessageEventListener">      
+    </bean>
+    
+    <bean id="messageListener2" class="com.springteam.springpractise.listener.MessageEventListener">      
+    </bean>
+
+    
+    <bean id= "walkor" name="valkorHero" class="com.springteam.springpractise.domain.Hero" 
+          p:id = "1"
+          p:name = "Walkor"
+          p:power = "3.33">
+        <property name="weaknesses">
+            <list>
+                <value>"Fear"</value>
+                <value>"Confusion"</value>
+                <value>"Tralala"</value>
+                <value>"Lalal"</value>
+            </list>
+        </property>
+    </bean>
+    
+    
+    <task:scheduler id="myScheduler" pool-size="10"/>
+    
+    
+    <task:scheduled-tasks scheduler="myScheduler">
+        <task:scheduled ref="creatureService" method="sayHello" fixed-delay="10000"/>
+    </task:scheduled-tasks>
+    
+    
+    
+    
+  
+    
+    
+    <rabbit:connection-factory id="connectionFactory" host="localhost" />
+    
+    <rabbit:template id="amqpTemplate" 
+                     exchange="measureInfoExchange"  
+                     connection-factory="connectionFactory"
+                     reply-timeout="5000"
+                     routing-key="measureInfoQueue"
+    />
+    
+    <rabbit:admin connection-factory="connectionFactory" id="rabbitAdmin" />
+          
+    <rabbit:queue name = "measureInfoQueue" />
+          
+    <rabbit:direct-exchange name="measureInfoExchange" >
+        <rabbit:bindings>
+            <rabbit:binding queue="measureInfoQueue" key = "measureInfoQueue" />
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+          
+    <bean id="measureProxyFactory" class="org.springframework.amqp.remoting.client.AmqpProxyFactoryBean">
+        <property name="amqpTemplate" ref="amqpTemplate" />
+        <property name="serviceInterface" value="com.springteam.springpractise.amqp.service.MeasureService" />
+    </bean>
+          
+    <rabbit:listener-container connection-factory="connectionFactory" >
+        <rabbit:listener ref="measureServiceExporter" queue-names="measureInfoQueue" />
+    </rabbit:listener-container>
+          
+    <bean id = "measureServiceExporter" class="org.springframework.amqp.remoting.service.AmqpInvokerServiceExporter" >
+        <property name="amqpTemplate" ref = "amqpTemplate" />
+        <property name="serviceInterface" value="com.springteam.springpractise.amqp.service.MeasureService" ></property>
+        <property name="service">
+            <bean class = "com.springteam.springpractise.amqp.service.impl.MeasureServiceImpl"></bean>
+        </property>
+    </bean>
+          
+          
+</beans>
